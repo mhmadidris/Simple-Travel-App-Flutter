@@ -1,16 +1,17 @@
-# aplikasi_project
+# BransKuy
 
-A new Flutter project.
 
-## Getting Started
+### Splash screen
+![](https://github.com/mhmadidris/Simple-Travel-App-Flutter/blob/main/Screenshots/Splash%20screen.jpg)
 
-This project is a starting point for a Flutter application.
+### Home Page
+![](https://github.com/mhmadidris/Simple-Travel-App-Flutter/blob/main/Screenshots/Homepage%20screen.jpg)
 
-A few resources to get you started if this is your first Flutter project:
+### Search
+![](https://github.com/mhmadidris/Simple-Travel-App-Flutter/blob/main/Screenshots/Search%20screen.jpg)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Detail Travel
+![](https://github.com/mhmadidris/Simple-Travel-App-Flutter/blob/main/Screenshots/Detail%20travel.jpg)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Detail Photos
+![](https://github.com/mhmadidris/Simple-Travel-App-Flutter/blob/main/Screenshots/Detail%20photos.jpg)
