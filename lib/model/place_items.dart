@@ -13,12 +13,12 @@ class TravelPlace {
   });
 }
 
-var tourismPlaceList = [
+var daftarTravel = [
   TravelPlace(
     name: "Baluran National Park",
     location: "Banyuwangi, Indonesia",
     description:
-        "Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung. Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam bentuk spot swafoto Instagramable.",
+        "Taman Nasional Baluran adalah salah satu Taman Nasional di Indonesia yang terletak di wilayah Banyuputih, Situbondo, Jawa Timur, Indonesia. Nama dari Taman Nasional ini diambil dari nama gunung yang berada di daerah ini, yaitu Gunung Baluran. Taman nasional ini terdiri dari tipe vegetasi sabana, hutan mangrove, hutan musim, hutan pantai, hutan pegunungan bawah, hutan rawa dan hutan yang selalu hijau sepanjang tahun. ",
     price: "500.000",
     duration: "1",
     imageAsset: "assets/images/travel/baluran (1).jpg",
@@ -34,7 +34,7 @@ var tourismPlaceList = [
     name: "Nusa Penida Island",
     location: "Bali, Indonesia",
     description:
-        "Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung. Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam bentuk spot swafoto Instagramable.",
+        "Nusa Penida adalah sebuah pulau (=nusa) bagian dari negara Republik Indonesia yang terletak di sebelah tenggara Bali yang dipisahkan oleh Selat Badung. Di dekat pulau ini terdapat juga pulau-pulau kecil lainnya yaitu Nusa Ceningan dan Nusa Lembongan. Perairan pulau Nusa Penida terkenal dengan kawasan selamnya di antaranya terdapat di Crystal Bay, Manta Point, Batu Meling, Batu Lumbung, Batu Abah, Toyapakeh dan Malibu Point.",
     price: "800.000",
     duration: "2",
     imageAsset: "assets/images/travel/nusa-penida (1).jpg",
@@ -50,7 +50,7 @@ var tourismPlaceList = [
     name: "Bromo Mountain",
     location: "Malang, Indonesia",
     description:
-        "Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung. Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam bentuk spot swafoto Instagramable.",
+        "Gunung Bromo (dari bahasa Sanskerta: Brahma, salah seorang Dewa Utama dalam agama Hindu) atau dalam bahasa Tengger dieja 'Brama', adalah sebuah gunung berapi aktif di Jawa Timur, Indonesia. Gunung ini memiliki ketinggian 2.329 meter di atas permukaan laut dan berada dalam empat wilayah kabupaten, yakni Kabupaten Probolinggo, Kabupaten Pasuruan, Kabupaten Lumajang, dan Kabupaten Malang.",
     price: "750.000",
     duration: "2",
     imageAsset: "assets/images/travel/bromo (1).jpg",
@@ -66,7 +66,7 @@ var tourismPlaceList = [
     name: "Cipta Gelar Village",
     location: "Sukabumi, Indonesia",
     description:
-        "Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung. Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam bentuk spot swafoto Instagramable.",
+        "Kampung Gede Kasepuhan Ciptagelar memegang kuat adat dan tradisi yang diturunkan sejak 644-an tahun lalu (1368 M). Kampung Gede Kasepuhan Ciptagelar adalah masyarakat adat yang bersandar kepada budidaya padi, seluruh sendi-sendi kehidupan adat didasarkan kepada kalender siklus padi. Leuit bagi warga kasepuhan Ciptagelar tidak hanya berarti gudang tempat penyimpanan padi, melainkan berkaitan dengan simbol penghormatan pada Dewi.",
     price: "300.000",
     duration: "2",
     imageAsset: "assets/images/travel/desa cipta gelar (1).jpeg",
@@ -83,7 +83,7 @@ var tourismPlaceList = [
     name: "Madakaripura Waterfall",
     location: "Malang, Indonesia",
     description:
-        "Berada di jalur utama Bandung-Lembang, Farm House menjadi objek wisata yang tidak pernah sepi pengunjung. Selain karena letaknya strategis, kawasan ini juga menghadirkan nuansa wisata khas Eropa. Semua itu diterapkan dalam bentuk spot swafoto Instagramable.",
+        "Air terjun Madakaripura adalah sebuah air terjun yang terletak di Kabupaten Probolinggo, Provinsi Jawa Timur. Air terjun setinggi 200 meter ini merupakan air terjun tertinggi di Pulau Jawa dan tertinggi kedua di Indonesia. Air terjun ini adalah salah satu air terjun di kawasan Taman Nasional Bromo Tengger Semeru tepatnya di lereng Gunung Bromo.",
     price: "300.000",
     duration: "2",
     imageAsset: "assets/images/travel/madakaripura (1).jpg",

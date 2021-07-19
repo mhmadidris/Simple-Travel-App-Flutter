@@ -7,97 +7,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        return Scaffold(
-          body: LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints) {
-              if (constraints.maxWidth <= 800) {
-                return MobileView();
-              } else {
-                return TourismPlaceGridd(gridCount: 1);
-              }
-            },
-          ),
-        );
-      },
-    );
-  }
-}
-
-class TourismPlaceGridd extends StatelessWidget {
-  final int gridCount;
-
-  TourismPlaceGridd({required this.gridCount});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scrollbar(
-      isAlwaysShown: false,
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: GridView.count(
-          crossAxisCount: gridCount,
-          crossAxisSpacing: 16,
-          mainAxisSpacing: 16,
-          children: tourismPlaceList.map((place) {
-            return InkWell(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return DetailTravel(
-                    place: place,
-                  );
-                }));
-              },
-              child: Card(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        place.imageAsset,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        place.name,
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
-                      child: Text(
-                        place.location,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }).toList(),
-        ),
-      ),
-    );
-  }
+  _HomePageState createState() => _HomePageState();
 }
 
-class MobileView extends StatefulWidget {
-  const MobileView({Key? key}) : super(key: key);
-
-  @override
-  _MobileViewState createState() => _MobileViewState();
-}
-
-class _MobileViewState extends State<MobileView> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
@@ -187,6 +104,20 @@ class _MobileViewState extends State<MobileView> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
+            FittedBox(
+              child: Container(
+                width: deviceWidth,
+                padding: EdgeInsets.fromLTRB(7.5, 5, 7.5, 5),
+                child: AutoSizeText(
+                  "Travel will be easier with us!",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontFamily: 'Poppins',
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ),
             Container(
               height: deviceHeight * 0.35,
               margin: EdgeInsets.all(10),
@@ -226,42 +157,6 @@ class _MobileViewState extends State<MobileView> {
                 ],
               ),
             ),
-            // Container(
-            //   height: 75,
-            //   width: MediaQuery.of(context).size.width,
-            //   margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-            //   child: Stack(
-            //     alignment: Alignment.center,
-            //     children: [
-            //       Row(
-            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //         children: [
-            //           Container(
-            //             child: Expanded(
-            //               child: Text(
-            //                 "Travel will be easier \nwith us!",
-            //                 style: TextStyle(
-            //                   fontWeight: FontWeight.w700,
-            //                   fontFamily: 'Poppins',
-            //                   fontSize: 22,
-            //                 ),
-            //               ),
-            //             ),
-            //           ),
-            //           Container(
-            //             child: IconButton(
-            //               onPressed: () {},
-            //               icon: Icon(
-            //                 Icons.search,
-            //                 size: 30,
-            //               ),
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
             Stack(
               children: <Widget>[
                 Container(
@@ -487,7 +382,7 @@ class _MobileViewState extends State<MobileView> {
                             physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              final TravelPlace place = tourismPlaceList[index];
+                              final TravelPlace place = daftarTravel[index];
                               return InkWell(
                                 onTap: () {
                                   Navigator.push(context,
@@ -667,7 +562,7 @@ class _MobileViewState extends State<MobileView> {
                                 ),
                               );
                             },
-                            itemCount: tourismPlaceList.length,
+                            itemCount: daftarTravel.length,
                           ),
                         ],
                       ),

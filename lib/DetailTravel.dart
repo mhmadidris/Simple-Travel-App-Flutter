@@ -1,38 +1,15 @@
-import 'package:aplikasi_project/home_page.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:aplikasi_project/model/place_items.dart';
 
-var informationTextStyle = TextStyle(fontFamily: 'Oxygen');
-
 class DetailTravel extends StatelessWidget {
   final TravelPlace place;
 
   DetailTravel({required this.place});
-
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        if (constraints.maxWidth > 1200) {
-          return DetailWebPage(place: place);
-        } else {
-          return DetailMobilePage(place: place);
-        }
-      },
-    );
-  }
-}
-
-class DetailMobilePage extends StatelessWidget {
-  final TravelPlace place;
-
-  DetailMobilePage({required this.place});
 
   @override
   Widget build(BuildContext context) {
@@ -348,537 +325,511 @@ class DetailMobilePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      DefaultTabController(
-                        length: 2,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            Container(
-                              child: TabBar(
-                                labelColor: Colors.blueAccent,
-                                unselectedLabelColor: Colors.black,
-                                tabs: [
-                                  Tab(text: "Description"),
-                                  Tab(text: "Ratings"),
-                                ],
-                              ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    DefaultTabController(
+                      length: 2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Container(
+                            child: TabBar(
+                              labelColor: Colors.blueAccent,
+                              unselectedLabelColor: Colors.black,
+                              tabs: [
+                                Tab(text: "Description"),
+                                Tab(text: "Ratings"),
+                              ],
                             ),
-                            Container(
-                              height: 200,
-                              decoration: BoxDecoration(
-                                  border: Border(
-                                      top: BorderSide(
-                                          color: Colors.grey, width: 0.5))),
-                              child: TabBarView(
-                                children: <Widget>[
-                                  Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    padding:
-                                        EdgeInsets.fromLTRB(10, 20, 10, 20),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        AutoSizeText(
-                                          "Description",
-                                          style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontWeight: FontWeight.w700,
-                                            fontSize: 14,
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: AutoSizeText(
-                                            place.description,
-                                            textAlign: TextAlign.justify,
-                                            style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 12,
-                                              color: Colors.grey[700],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                          ),
+                          Container(
+                            height: 200,
+                            padding: EdgeInsets.all(10),
+                            child: TabBarView(
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AutoSizeText(
+                                      "Description",
+                                      style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 14,
+                                      ),
                                     ),
-                                  ),
-                                  Container(
-                                    width: 10,
-                                    height: 20,
-                                    margin: EdgeInsets.all(10),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          width: 100,
+                                    Expanded(
+                                      child: AutoSizeText(
+                                        place.description,
+                                        textAlign: TextAlign.justify,
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12,
+                                          color: Colors.grey[700],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 100,
+                                        height:
+                                            MediaQuery.of(context).size.height,
+                                        child: Center(
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              AutoSizeText(
+                                                "4.7",
+                                                style: TextStyle(
+                                                  fontFamily: "Nunito Sans",
+                                                  fontWeight: FontWeight.w700,
+                                                  fontSize: 25,
+                                                ),
+                                              ),
+                                              Text(
+                                                "Ratings",
+                                                style: TextStyle(
+                                                  fontFamily: "Nunito Sans",
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Container(
                                           height: MediaQuery.of(context)
                                               .size
                                               .height,
                                           child: Center(
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                AutoSizeText(
-                                                  "4.7",
-                                                  style: TextStyle(
-                                                    fontFamily: "Nunito Sans",
-                                                    fontWeight: FontWeight.w700,
-                                                    fontSize: 25,
+                                            child: Container(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        0, 2.5, 0, 2.5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  10, 0, 5, 0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  5, 0, 10, 0),
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width /
+                                                              2.8,
+                                                          height: 15,
+                                                          child:
+                                                              FractionallySizedBox(
+                                                            alignment: Alignment
+                                                                .centerLeft,
+                                                            widthFactor: 0.9,
+                                                            heightFactor: 0.5,
+                                                            child: Container(
+                                                                color: Colors
+                                                                    .brown,
+                                                                margin: EdgeInsets
+                                                                    .fromLTRB(
+                                                                        2.5,
+                                                                        0,
+                                                                        2.5,
+                                                                        0)),
+                                                          ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        2.5),
+                                                            color: Colors.green,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                ),
-                                                Text(
-                                                  "Ratings",
-                                                  style: TextStyle(
-                                                    fontFamily: "Nunito Sans",
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: 14,
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        0, 2.5, 0, 2.5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  10, 0, 5, 0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  5, 0, 10, 0),
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width /
+                                                              2.8,
+                                                          height: 15,
+                                                          child:
+                                                              FractionallySizedBox(
+                                                            alignment: Alignment
+                                                                .centerLeft,
+                                                            widthFactor: 0.6,
+                                                            heightFactor: 0.5,
+                                                            child: Container(
+                                                                color: Colors
+                                                                    .brown,
+                                                                margin: EdgeInsets
+                                                                    .fromLTRB(
+                                                                        2.5,
+                                                                        0,
+                                                                        2.5,
+                                                                        0)),
+                                                          ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        2.5),
+                                                            color: Colors.green,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Container(
-                                            height: MediaQuery.of(context)
-                                                .size
-                                                .height,
-                                            child: Center(
-                                              child: Container(
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Container(
-                                                      margin:
-                                                          EdgeInsets.fromLTRB(
-                                                              0, 2.5, 0, 2.5),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(10, 0,
-                                                                    5, 0),
-                                                            child: Row(
-                                                              children: [
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                              ],
-                                                            ),
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        0, 2.5, 0, 2.5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  10, 0, 5, 0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                            ],
                                                           ),
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(5, 0,
-                                                                    10, 0),
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width /
-                                                                2.8,
-                                                            height: 15,
-                                                            child:
-                                                                FractionallySizedBox(
-                                                              alignment: Alignment
-                                                                  .centerLeft,
-                                                              widthFactor: 0.9,
-                                                              heightFactor: 0.5,
-                                                              child: Container(
-                                                                  color: Colors
-                                                                      .brown,
-                                                                  margin: EdgeInsets
-                                                                      .fromLTRB(
-                                                                          2.5,
-                                                                          0,
-                                                                          2.5,
-                                                                          0)),
-                                                            ),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          2.5),
-                                                              color:
-                                                                  Colors.green,
-                                                            ),
+                                                        ),
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  5, 0, 10, 0),
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width /
+                                                              2.8,
+                                                          height: 15,
+                                                          child:
+                                                              FractionallySizedBox(
+                                                            alignment: Alignment
+                                                                .centerLeft,
+                                                            widthFactor: 0.1,
+                                                            heightFactor: 0.5,
+                                                            child: Container(
+                                                                color: Colors
+                                                                    .brown,
+                                                                margin: EdgeInsets
+                                                                    .fromLTRB(
+                                                                        2.5,
+                                                                        0,
+                                                                        2.5,
+                                                                        0)),
                                                           ),
-                                                        ],
-                                                      ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        2.5),
+                                                            color: Colors.green,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Container(
-                                                      margin:
-                                                          EdgeInsets.fromLTRB(
-                                                              0, 2.5, 0, 2.5),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(10, 0,
-                                                                    5, 0),
-                                                            child: Row(
-                                                              children: [
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                              ],
-                                                            ),
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        0, 2.5, 0, 2.5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  10, 0, 5, 0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                            ],
                                                           ),
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(5, 0,
-                                                                    10, 0),
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width /
-                                                                2.8,
-                                                            height: 15,
-                                                            child:
-                                                                FractionallySizedBox(
-                                                              alignment: Alignment
-                                                                  .centerLeft,
-                                                              widthFactor: 0.6,
-                                                              heightFactor: 0.5,
-                                                              child: Container(
-                                                                  color: Colors
-                                                                      .brown,
-                                                                  margin: EdgeInsets
-                                                                      .fromLTRB(
-                                                                          2.5,
-                                                                          0,
-                                                                          2.5,
-                                                                          0)),
-                                                            ),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          2.5),
-                                                              color:
-                                                                  Colors.green,
-                                                            ),
+                                                        ),
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  5, 0, 10, 0),
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width /
+                                                              2.8,
+                                                          height: 15,
+                                                          child:
+                                                              FractionallySizedBox(
+                                                            alignment: Alignment
+                                                                .centerLeft,
+                                                            widthFactor: 0.2,
+                                                            heightFactor: 0.5,
+                                                            child: Container(
+                                                                color: Colors
+                                                                    .brown,
+                                                                margin: EdgeInsets
+                                                                    .fromLTRB(
+                                                                        2.5,
+                                                                        0,
+                                                                        2.5,
+                                                                        0)),
                                                           ),
-                                                        ],
-                                                      ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        2.5),
+                                                            color: Colors.green,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Container(
-                                                      margin:
-                                                          EdgeInsets.fromLTRB(
-                                                              0, 2.5, 0, 2.5),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(10, 0,
-                                                                    5, 0),
-                                                            child: Row(
-                                                              children: [
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                              ],
-                                                            ),
+                                                  ),
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(
+                                                        0, 2.5, 0, 2.5),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  10, 0, 5, 0),
+                                                          child: Row(
+                                                            children: [
+                                                              Icon(
+                                                                Icons.star,
+                                                                size: 16,
+                                                                color: Colors
+                                                                    .yellowAccent,
+                                                              ),
+                                                            ],
                                                           ),
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(5, 0,
-                                                                    10, 0),
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width /
-                                                                2.8,
-                                                            height: 15,
-                                                            child:
-                                                                FractionallySizedBox(
-                                                              alignment: Alignment
-                                                                  .centerLeft,
-                                                              widthFactor: 0.1,
-                                                              heightFactor: 0.5,
-                                                              child: Container(
-                                                                  color: Colors
-                                                                      .brown,
-                                                                  margin: EdgeInsets
-                                                                      .fromLTRB(
-                                                                          2.5,
-                                                                          0,
-                                                                          2.5,
-                                                                          0)),
-                                                            ),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          2.5),
-                                                              color:
-                                                                  Colors.green,
-                                                            ),
+                                                        ),
+                                                        Container(
+                                                          margin: EdgeInsets
+                                                              .fromLTRB(
+                                                                  5, 0, 10, 0),
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width /
+                                                              2.8,
+                                                          height: 15,
+                                                          child:
+                                                              FractionallySizedBox(
+                                                            alignment: Alignment
+                                                                .centerLeft,
+                                                            widthFactor: 0.1,
+                                                            heightFactor: 0.5,
+                                                            child: Container(
+                                                                color: Colors
+                                                                    .brown,
+                                                                margin: EdgeInsets
+                                                                    .fromLTRB(
+                                                                        2.5,
+                                                                        0,
+                                                                        2.5,
+                                                                        0)),
                                                           ),
-                                                        ],
-                                                      ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        2.5),
+                                                            color: Colors.green,
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Container(
-                                                      margin:
-                                                          EdgeInsets.fromLTRB(
-                                                              0, 2.5, 0, 2.5),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(10, 0,
-                                                                    5, 0),
-                                                            child: Row(
-                                                              children: [
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(5, 0,
-                                                                    10, 0),
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width /
-                                                                2.8,
-                                                            height: 15,
-                                                            child:
-                                                                FractionallySizedBox(
-                                                              alignment: Alignment
-                                                                  .centerLeft,
-                                                              widthFactor: 0.2,
-                                                              heightFactor: 0.5,
-                                                              child: Container(
-                                                                  color: Colors
-                                                                      .brown,
-                                                                  margin: EdgeInsets
-                                                                      .fromLTRB(
-                                                                          2.5,
-                                                                          0,
-                                                                          2.5,
-                                                                          0)),
-                                                            ),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          2.5),
-                                                              color:
-                                                                  Colors.green,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Container(
-                                                      margin:
-                                                          EdgeInsets.fromLTRB(
-                                                              0, 2.5, 0, 2.5),
-                                                      child: Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceBetween,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(10, 0,
-                                                                    5, 0),
-                                                            child: Row(
-                                                              children: [
-                                                                Icon(
-                                                                  Icons.star,
-                                                                  size: 16,
-                                                                  color: Colors
-                                                                      .yellowAccent,
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            margin: EdgeInsets
-                                                                .fromLTRB(5, 0,
-                                                                    10, 0),
-                                                            width: MediaQuery.of(
-                                                                        context)
-                                                                    .size
-                                                                    .width /
-                                                                2.8,
-                                                            height: 15,
-                                                            child:
-                                                                FractionallySizedBox(
-                                                              alignment: Alignment
-                                                                  .centerLeft,
-                                                              widthFactor: 0.1,
-                                                              heightFactor: 0.5,
-                                                              child: Container(
-                                                                  color: Colors
-                                                                      .brown,
-                                                                  margin: EdgeInsets
-                                                                      .fromLTRB(
-                                                                          2.5,
-                                                                          0,
-                                                                          2.5,
-                                                                          0)),
-                                                            ),
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          2.5),
-                                                              color:
-                                                                  Colors.green,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      border: Border.all(
-                                        color: Colors.grey.withOpacity(0.5),
-                                        width: 0.5,
                                       ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey,
-                                          spreadRadius: 0.5,
-                                          blurRadius: 1,
-                                        ),
-                                      ],
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: Border.all(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      width: 0.5,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey,
+                                        spreadRadius: 0.5,
+                                        blurRadius: 1,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -905,8 +856,7 @@ class DetailMobilePage extends StatelessWidget {
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (context, index) {
-                                final TravelPlace place =
-                                    tourismPlaceList[index];
+                                final TravelPlace place = daftarTravel[index];
                                 return InkWell(
                                   onTap: () {
                                     Navigator.push(context,
@@ -1037,7 +987,7 @@ class DetailMobilePage extends StatelessWidget {
                                   ),
                                 );
                               },
-                              itemCount: tourismPlaceList.length,
+                              itemCount: daftarTravel.length,
                             ),
                           ),
                         ],
@@ -1131,141 +1081,6 @@ class DetailMobilePage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class DetailWebPage extends StatefulWidget {
-  final TravelPlace place;
-
-  DetailWebPage({required this.place});
-
-  @override
-  _DetailWebPageState createState() => _DetailWebPageState();
-}
-
-class _DetailWebPageState extends State<DetailWebPage> {
-  final _scrollController = ScrollController();
-
-  @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    return Scaffold(
-      appBar: kIsWeb ? null : AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 16,
-          horizontal: 64,
-        ),
-        child: Center(
-          child: Container(
-            width: screenWidth <= 1200 ? 800 : 1200,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  'Wisata Bandung',
-                  style: TextStyle(
-                    fontFamily: 'Staatliches',
-                    fontSize: 32,
-                  ),
-                ),
-                SizedBox(height: 32),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            child: Image.asset(widget.place.imageAsset),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          SizedBox(height: 16),
-                          Scrollbar(
-                            isAlwaysShown: true,
-                            controller: _scrollController,
-                            child: Container(
-                              height: 150,
-                              padding: const EdgeInsets.only(bottom: 16),
-                              child: ListView(
-                                controller: _scrollController,
-                                scrollDirection: Axis.horizontal,
-                                children: widget.place.imageSlider.map(
-                                  (url) {
-                                    return Padding(
-                                      padding: const EdgeInsets.all(4.0),
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: Image.network(url),
-                                      ),
-                                    );
-                                  },
-                                ).toList(),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      child: Card(
-                        child: Container(
-                          padding: const EdgeInsets.all(15),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                              Container(
-                                child: Text(
-                                  widget.place.name,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 30.0,
-                                    fontFamily: 'Staatliches',
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 8.0),
-                              Row(
-                                children: <Widget>[
-                                  Icon(Icons.monetization_on),
-                                  SizedBox(width: 8.0),
-                                  Text(
-                                    widget.place.price,
-                                    style: informationTextStyle,
-                                  ),
-                                ],
-                              ),
-                              Container(
-                                padding: EdgeInsets.symmetric(vertical: 16.0),
-                                child: Text(
-                                  widget.place.description,
-                                  textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontFamily: 'Oxygen',
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
   }
 }
 
